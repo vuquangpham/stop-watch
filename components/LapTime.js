@@ -6,7 +6,7 @@ export default function LapTime(props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{index}</Text>
+      <Text style={styles.text}>Lap {index}</Text>
       <Text style={styles.text}>{time}</Text>
     </View>
   );
