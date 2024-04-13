@@ -6,21 +6,33 @@ import { useState } from "react";
 
 export default function Home() {
   const [isRunning, setIsRunning] = useState(false);
+  const [isPause, setIsPause] = useState(false);
+  const [lapTime, setLapTime] = useState([]);
+
+  // vars
+  const showLapButton = !(isRunning && isPause);
+  const showResetButton = isRunning && isPause;
+  const showStartButton = !isRunning || (isRunning && isPause);
+  const showStopButton = isRunning && !isPause;
 
   const handleLapPress = () => {
-    console.log("lap");
+    setLapTime((state) => {
+      state.unshift("state");
+    });
   };
 
   const handleResetPress = () => {
-    console.log("reset");
+    setIsPause(false);
+    setIsRunning(false);
   };
 
   const handleStartPress = () => {
-    console.log("start");
+    setIsRunning(true);
+    setIsPause(false);
   };
 
   const handleStopPress = () => {
-    console.log("stop");
+    setIsPause(true);
   };
 
   const defaultLapTimes = [
@@ -40,12 +52,18 @@ export default function Home() {
 
       <View style={styles.groupButton}>
         <View>
-          <Button text="Lap" onPress={handleLapPress} />
-          {isRunning && <Button text="Reset" onPress={handleResetPress} />}
+          {showLapButton && (
+            <Button text="Lap" disabled={!isRunning} onPress={handleLapPress} />
+          )}
+          {showResetButton && (
+            <Button text="Reset" onPress={handleResetPress} />
+          )}
         </View>
         <View>
-          <Button text="Start" style="green" onPress={handleStartPress} />
-          {isRunning && (
+          {showStartButton && (
+            <Button text="Start" style="green" onPress={handleStartPress} />
+          )}
+          {showStopButton && (
             <Button text="Stop" style="red" onPress={handleStopPress} />
           )}
         </View>

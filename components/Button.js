@@ -7,7 +7,10 @@ const colors = {
 };
 
 export default function Button(props) {
+  const isDisabled = props.disabled;
   const text = props.text;
+
+  // vars
   let borderStyle = styles.borderGrey,
     bgStyle = styles.bgGrey,
     textStyle = styles.txtGrey;
@@ -32,7 +35,7 @@ export default function Button(props) {
   return (
     <TouchableOpacity
       onPress={props.onPress}
-      style={[styles.button, borderStyle]}
+      style={[styles.button, borderStyle, isDisabled ? styles.disabled : {}]}
     >
       <View style={[styles.inner, bgStyle]}>
         <Text style={[styles.text, textStyle]}>{text}</Text>
@@ -94,5 +97,10 @@ const styles = StyleSheet.create({
   },
   txtRed: {
     color: "#c92a2a",
+  },
+
+  disabled: {
+    opacity: 0.5,
+    pointerEvents: "none",
   },
 });
