@@ -6,8 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 import formatTime from "minutes-seconds-milliseconds";
 
-console.log(typeof formatTime(3659));
-
 export default function Home() {
   const ticker = useRef();
 
