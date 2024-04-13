@@ -2,4 +2,4 @@
 
 ## Screen
 
-![Screen](./pictures/Screenshot%202024-04-13%20at%2009.20.07.png)
+![Screen](./pictures/Screenshot%202024-04-13%20at%2009.43.57.png)
