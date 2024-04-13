@@ -52,7 +52,7 @@ export default function Home() {
     let lastTime = 0;
     const raf = (now) => {
       if (lastTime && isRunning && !isPause) {
-        const elapsed = Math.round(now - lastTime) * 1000;
+        const elapsed = Math.round(now - lastTime);
         setTime((state) => state + elapsed);
       }
       lastTime = now;
@@ -116,7 +116,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
 
-    marginBottom: 40,
+    marginBottom: 15,
+    paddingBottom: 20,
+
+    borderWidth: 0.5,
+    borderBottomColor: "rgba(255, 255, 255, 0.3)",
   },
 
   lapTime: {
