@@ -1,5 +1,5 @@
 # Stop Watch - React Native Project
 
-## Screens
+## Screen
 
-![Screen](./pictures/Screenshot%202024-04-13%20at%2008.15.53.png)
+![Screen](./pictures/Screenshot%202024-04-13%20at%2009.20.07.png)
